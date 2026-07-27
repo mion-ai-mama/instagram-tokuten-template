@@ -332,13 +332,12 @@ button:focus-visible {
 }
 
 .video-card__player {
+  /* 動画の実際の縦横比に合わせて自動でサイズが決まります（縦長・横長どちらもOK） */
   width: 100%;
-  max-width: 320px;
-  aspect-ratio: 9 / 16;
+  max-width: 420px;
   margin: 0 auto;
   border-radius: var(--radius-md);
   background: #0f1720;
-  object-fit: cover;
 }
 
 .video-card__fallback {
@@ -353,7 +352,7 @@ button:focus-visible {
   color: var(--color-text-muted);
 }
 
-/* YouTube埋め込みモード用（16:9のiframeを中央寄せの縦長エリアに収める） */
+/* YouTube埋め込みモード用（YouTube Shorts等、縦長9:16の動画を想定した固定枠） */
 .video-card__embed-wrap {
   position: relative;
   width: 100%;
