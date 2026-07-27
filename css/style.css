@@ -532,6 +532,24 @@ button:focus-visible {
   margin-top: 1rem;
 }
 
+.cta-card__banner-link {
+  display: block;
+  margin-top: 1.25rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 28px -14px var(--color-card-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cta-card__banner-link:hover {
+  transform: scale(1.015);
+  box-shadow: 0 16px 32px -14px var(--color-card-shadow);
+}
+.cta-card__banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ============================================================
    フッター
 ============================================================ */
