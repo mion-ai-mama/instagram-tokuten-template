@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIで人気動画を分析する方法｜コピペで使える3STEPガイド</title>
+<meta name="description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。コピペで使えるプロンプト付き。">
+
+<!-- OGP（SNSでシェアされたときの表示設定） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIで人気動画を分析する方法｜コピペで使える3STEPガイド">
+<meta property="og:description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。">
+<meta property="og:image" content="assets/images/ogp.jpg">
+<meta property="og:url" content="https://example.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2b8ce6">
+
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<main id="main">
+
+  <!-- ============================================================
+       1. ファーストビュー
+  ============================================================ -->
+  <section class="hero" id="hero" aria-label="ページ紹介">
+    <div class="hero__inner">
+      <p class="hero__label">AI初心者さん向け</p>
+      <h1 class="hero__title">
+        AIで人気動画を<br>分析する方法
+      </h1>
+      <p class="hero__subtitle">
+        コピペで使える<br>3STEPガイド
+      </p>
+      <p class="hero__desc">
+        人気の動画をChatGPTに見せると、<br>
+        「なぜ伸びたのか」や<br>
+        「次にどんな企画を作ればいいのか」を<br>
+        初心者にも分かりやすく整理してもらえます。
+      </p>
+      <a class="btn btn--primary btn--large" href="#step1" data-scroll>
+        3STEPを見てみる
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. はじめに
+  ============================================================ -->
+  <section class="section" id="intro" aria-labelledby="intro-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="intro-heading">
+        何を投稿したらいいか<br>分からないときは…
+      </h2>
+      <div class="prose">
+        <p>「投稿のアイデアが思いつかない」</p>
+        <p>「人気動画を見ても、<br>どこを参考にすればいいか分からない」</p>
+        <p>そんなときは、<br>ゼロから全部考えようとしなくても大丈夫です。</p>
+        <p>人気の動画をChatGPTに見せることで、</p>
+        <ul class="check-list">
+          <li>なぜ多くの人に見られたのか</li>
+          <li>どんな人に向けた動画なのか</li>
+          <li>冒頭にどんな工夫があるのか</li>
+          <li>次にどんな企画が作れそうか</li>
+        </ul>
+        <p>
+          などを整理してもらえます。<br><br>
+          今回は、<br>
+          AI初心者さんでもすぐ試せるように、<br>
+          やり方を3STEPでまとめました。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. この方法でできること
+  ============================================================ -->
+  <section class="section section--soft" id="can-do" aria-labelledby="can-do-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="can-do-heading">ChatGPTに手伝ってもらえること</h2>
+      <div class="card-grid" id="can-do-cards">
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">✨</span>
+          <h3 class="card__title">伸びた理由を整理</h3>
+          <p class="card__desc">自分では気づかなかった動画の工夫を、初心者にも分かる言葉で整理してもらえます。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">🎯</span>
+          <h3 class="card__title">ターゲットを確認</h3>
+          <p class="card__desc">その動画が、どんな人に向けて作られているのかを考えてもらえます。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">🧩</span>
+          <h3 class="card__title">動画の構成を分析</h3>
+          <p class="card__desc">冒頭、中盤、最後まで、どんな流れで作られているかを整理できます。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">💡</span>
+          <h3 class="card__title">新しい企画を考える</h3>
+          <p class="card__desc">分析した内容を参考に、自分でも作れそうな新しい企画を提案してもらえます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       実例動画セクション
+  ============================================================ -->
+  <section class="section" id="example-video" aria-labelledby="example-video-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="example-video-heading">実際に作った動画はこちら</h2>
+      <div class="video-card">
+        <video
+          id="example-video-player"
+          class="video-card__player"
+          controls
+          preload="none"
+          playsinline
+          poster="assets/images/video-poster.jpg"
+          aria-label="AIで動画分析を行い制作した実例動画">
+          <source src="assets/videos/example.mp4" type="video/mp4">
+          <p class="video-card__fallback">
+            動画を読み込めませんでした。ブラウザや通信環境をご確認いただくか、時間をおいて再度お試しください。
+          </p>
+        </video>
+        <p class="video-card__caption">
+          この動画は、<br>
+          人気動画の構成や見せ方をAIで分析し、<br>
+          その結果を参考に作成した実例です。<br><br>
+          元の動画をそのまま真似するのではなく、<br>
+          分析したポイントを自分の企画に応用しています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. STEP1
+  ============================================================ -->
+  <section class="section step" id="step1" aria-labelledby="step1-heading">
+    <div class="section__inner reveal">
+      <p class="step__number">STEP 1</p>
+      <h2 class="step__title" id="step1-heading">気になる人気動画を見つける</h2>
+      <div class="prose">
+        <p>まずは、<br>YouTubeやInstagramなどで、<br>自分が気になった動画を探します。</p>
+        <p>選ぶときは、<br>次のような動画がおすすめです。</p>
+        <ul class="check-list">
+          <li>最後まで見てしまった動画</li>
+          <li>再生回数が多い動画</li>
+          <li>コメントや反応が多い動画</li>
+          <li>自分の発信テーマに近い動画</li>
+          <li>なぜか気になって何度も見た動画</li>
+        </ul>
+        <p>ここで大切なのは、<br>その動画をそのまま真似することではありません。</p>
+        <p>「なぜ自分は見てしまったのか」<br><br>「どこに興味を持ったのか」<br><br>を考えるための参考動画として選びましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. STEP2
+  ============================================================ -->
+  <section class="section section--soft step" id="step2" aria-labelledby="step2-heading">
+    <div class="section__inner reveal">
+      <p class="step__number">STEP 2</p>
+      <h2 class="step__title" id="step2-heading">動画のスクショを撮る</h2>
+      <div class="prose">
+        <p>次に、<br>動画の流れが分かるように<br>スクリーンショットを撮ります。</p>
+        <p>おすすめは3〜5枚程度です。</p>
+        <p>以下の場面を撮ると、<br>ChatGPTが分析しやすくなります。</p>
+        <ul class="check-list">
+          <li>動画のタイトルやサムネイル</li>
+          <li>冒頭の場面</li>
+          <li>内容が大きく動く場面</li>
+          <li>途中の重要な場面</li>
+          <li>最後のまとめや案内部分</li>
+        </ul>
+        <p>すべての場面を撮る必要はありません。</p>
+        <p>動画の雰囲気と流れが分かる画像を<br>数枚選べば大丈夫です。</p>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label">補足</p>
+        <p>
+          YouTubeのURLだけでは、<br>
+          ChatGPTが動画の中身を正確に確認できない場合があります。<br><br>
+          そのため、<br>
+          今回はスクショを送る方法をおすすめしています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. STEP3
+  ============================================================ -->
+  <section class="section step" id="step3" aria-labelledby="step3-heading">
+    <div class="section__inner reveal">
+      <p class="step__number">STEP 3</p>
+      <h2 class="step__title" id="step3-heading">スクショと指示文を<br>ChatGPTに送る</h2>
+      <div class="prose">
+        <p>ChatGPTを開いたら、<br>先ほど撮ったスクショを添付します。</p>
+        <p>そのあと、<br>このページにある指示文をコピーして送ってください。</p>
+        <p>難しい設定は必要ありません。</p>
+        <p>スクショを添付して、<br>指示文を貼り付けて送るだけです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. メインプロンプト
+  ============================================================ -->
+  <section class="section section--soft" id="main-prompt" aria-labelledby="main-prompt-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="main-prompt-heading">この指示文をコピーして使ってください</h2>
+      <p class="section__desc">下の文章をコピーして、<br>スクショと一緒にChatGPTへ送ってください。</p>
+
+      <div class="prompt-box">
+        <pre class="prompt-box__text" id="main-prompt-text">添付したスクショは
+YouTubeで人気の動画です。
+
+以下を分析してください。
+
+・この動画が伸びた理由
+・ターゲット
+・冒頭3秒の工夫
+・構成
+・視聴維持率が高そうなポイント
+・この動画を参考にした新しい企画を10個考えてください。
+
+初心者にも分かるように解説してください。</pre>
+        <button
+          type="button"
+          class="btn btn--primary copy-btn"
+          data-copy-target="main-prompt-text"
+          aria-label="メインプロンプトの指示文をコピーする">
+          <span class="copy-btn__label">この指示文をコピーする</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. 結果をよくするコツ
+  ============================================================ -->
+  <section class="section" id="tips" aria-labelledby="tips-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="tips-heading">さらに分かりやすい答えを<br>出してもらうコツ</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">📝</span>
+          <h3 class="card__title">自分の目的を伝える</h3>
+          <p class="card__desc">「Instagramリールの企画に使いたい」など、何に使いたいのかを伝えると、より目的に合った答えが出やすくなります。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">🙋</span>
+          <h3 class="card__title">誰向けかを伝える</h3>
+          <p class="card__desc">「40代・50代のAI初心者向け」など、届けたい相手を伝えると、企画の方向性が具体的になります。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">💬</span>
+          <h3 class="card__title">難しい場合は聞き直す</h3>
+          <p class="card__desc">答えが難しいと感じたら、「もっと簡単な言葉で説明してください」と追加で伝えて大丈夫です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. 追加で使える質問5選
+  ============================================================ -->
+  <section class="section section--soft" id="extra-questions" aria-labelledby="extra-questions-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="extra-questions-heading">もっと深く分析したいときの<br>追加質問5選</h2>
+      <p class="section__desc">最初の分析結果を見たあと、<br>気になる質問を追加で送ってみてください。</p>
+
+      <div class="question-list" id="extra-questions-list">
+        <div class="question-card">
+          <pre class="question-card__text" id="question-1">この動画が伸びた一番大きな理由を、
+初心者にも分かるように3つ教えてください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-1" aria-label="追加質問1をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="question-2">この動画の内容を、
+40代・50代の初心者向けに変えるとしたら、
+どのような企画になりますか？</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-2" aria-label="追加質問2をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="question-3">この動画をInstagramリールにする場合、
+30秒以内の構成を考えてください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-3" aria-label="追加質問3をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="question-4">このテーマを参考にしながら、
+内容が重ならない新しい企画を10個考えてください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-4" aria-label="追加質問4をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="question-5">この動画の良い部分と、
+そのまま真似しない方がよい部分を教えてください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-5" aria-label="追加質問5をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. 注意点
+  ============================================================ -->
+  <section class="section" id="caution" aria-labelledby="caution-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="caution-heading">人気動画を参考にするときの注意点</h2>
+      <div class="prose">
+        <p>人気動画を分析する目的は、<br>内容をそのままコピーすることではありません。</p>
+        <p>参考にするのは、</p>
+        <ul class="check-list">
+          <li>テーマの見せ方</li>
+          <li>冒頭の工夫</li>
+          <li>話の流れ</li>
+          <li>分かりやすい伝え方</li>
+          <li>視聴者が興味を持つポイント</li>
+        </ul>
+        <p>などです。</p>
+        <p>文章、画像、音声、動画を<br>そのまま使用することは避けましょう。</p>
+        <p>分析した内容をヒントにして、<br>自分の経験や考えを加えながら、<br>自分らしい企画に変えていくことが大切です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. まとめ
+  ============================================================ -->
+  <section class="section section--soft" id="summary" aria-labelledby="summary-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="summary-heading">今回の3STEP</h2>
+      <ol class="summary-list">
+        <li><span class="summary-list__number">STEP 1</span><span>気になる人気動画を見つける</span></li>
+        <li><span class="summary-list__number">STEP 2</span><span>動画の流れが分かるスクショを撮る</span></li>
+        <li><span class="summary-list__number">STEP 3</span><span>スクショと指示文をChatGPTへ送る</span></li>
+      </ol>
+      <div class="prose">
+        <p>AIは、<br>「答えを出してくれるだけの道具」ではありません。</p>
+        <p>初心者でも、<br>アイデアを整理したり、<br>考えるサポートをしてくれる相棒です。</p>
+        <p>最初から完璧に使おうとしなくても大丈夫です。</p>
+        <p>まずは気になる動画を1つ選んで、<br>今回の指示文を試してみてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. 最後の案内（CTA）
+  ============================================================ -->
+  <section class="section" id="cta" aria-labelledby="cta-heading">
+    <div class="section__inner reveal">
+      <div class="cta-card">
+        <h2 class="cta-card__heading" id="cta-heading">AIをもっと仕事や暮らしに<br>活かしてみたい方へ</h2>
+        <div class="prose">
+          <p>今回紹介した方法は、<br>AIの活用法のほんの一例です。</p>
+          <p>AIを知るだけではなく、<br>実際の仕事や日々の作業にどう活かすかを知ることで、<br>できることはさらに広がります。</p>
+          <p>
+            AI初心者さん向けに、<br>
+            AIを仕事に活かす考え方や方法をまとめた<br>
+            <strong class="cta-card__highlight">『AIマネタイズの教科書』</strong><br>
+            も無料でご用意しています。
+          </p>
+        </div>
+        <a class="btn btn--primary btn--large" id="cta-button" href="https://example.com/" target="_blank" rel="noopener">
+          AIマネタイズの教科書を受け取る
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     13. フッター
+============================================================ -->
+<footer class="footer">
+  <p>© MION</p>
+  <p>このページの内容の無断転載・複製はご遠慮ください。</p>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
