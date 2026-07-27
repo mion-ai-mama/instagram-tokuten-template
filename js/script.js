@@ -57,42 +57,6 @@
   }
 
   /* ------------------------------------------------------------
-     2. はじめに
-  ------------------------------------------------------------ */
-  function renderIntro(c) {
-    const root = document.getElementById("intro");
-    if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    let html = c.paragraphs.map((p) => `<p>${p}</p>`).join("");
-    html += `<p>${c.listHeadingNote}</p>`;
-    html += '<ul class="check-list">' + c.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
-    html += `<p>${c.closingParagraph}</p>`;
-    root.querySelector(".prose").innerHTML = html;
-  }
-
-  /* ------------------------------------------------------------
-     3. この方法でできること
-  ------------------------------------------------------------ */
-  const ICONS = { spark: "✨", target: "🎯", layers: "🧩", bulb: "💡" };
-
-  function renderCanDo(c) {
-    const root = document.getElementById("can-do");
-    if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    const grid = root.querySelector(".card-grid");
-    grid.innerHTML = c.cards
-      .map(
-        (card) => `
-      <div class="card">
-        <span class="card__icon" aria-hidden="true">${ICONS[card.icon] || "✨"}</span>
-        <h3 class="card__title">${card.title}</h3>
-        <p class="card__desc">${card.description}</p>
-      </div>`
-      )
-      .join("");
-  }
-
-  /* ------------------------------------------------------------
      実例動画
   ------------------------------------------------------------ */
   function renderExampleVideo(c) {
@@ -173,7 +137,7 @@
   }
 
   /* ------------------------------------------------------------
-     7. メインプロンプト
+     3. メインプロンプト
   ------------------------------------------------------------ */
   function renderMainPrompt(c) {
     const root = document.getElementById("main-prompt");
@@ -189,7 +153,7 @@
   }
 
   /* ------------------------------------------------------------
-     8. 結果をよくするコツ
+     7. 結果をよくするコツ
   ------------------------------------------------------------ */
   const TIP_ICONS = ["📝", "🙋", "💬"];
 
@@ -211,7 +175,7 @@
   }
 
   /* ------------------------------------------------------------
-     9. 追加で使える質問5選
+     8. 追加で使える質問5選
   ------------------------------------------------------------ */
   function renderExtraQuestions(c) {
     const root = document.getElementById("extra-questions");
@@ -235,34 +199,17 @@
   }
 
   /* ------------------------------------------------------------
-     10. 注意点
+     9. 注意点
   ------------------------------------------------------------ */
   function renderCaution(c) {
     const root = document.getElementById("caution");
     if (!root || !c) return;
     root.querySelector(".section__heading").innerHTML = c.heading;
-    let html = c.paragraphs.map((p) => `<p>${p}</p>`).join("");
-    html += `<p>${c.listHeadingNote}</p>`;
-    html += '<ul class="check-list">' + c.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
-    html += c.closingParagraphs.map((p) => `<p>${p}</p>`).join("");
-    root.querySelector(".prose").innerHTML = html;
+    root.querySelector(".prose").innerHTML = c.paragraphs.map((p) => `<p>${p}</p>`).join("");
   }
 
   /* ------------------------------------------------------------
-     11. まとめ
-  ------------------------------------------------------------ */
-  function renderSummary(c) {
-    const root = document.getElementById("summary");
-    if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    root.querySelector(".summary-list").innerHTML = c.steps
-      .map((s) => `<li><span class="summary-list__number">${s.number}</span><span>${s.text}</span></li>`)
-      .join("");
-    root.querySelector(".prose").innerHTML = c.closingParagraphs.map((p) => `<p>${p}</p>`).join("");
-  }
-
-  /* ------------------------------------------------------------
-     12. 最後の案内（CTA）
+     10. 最後の案内（CTA）
   ------------------------------------------------------------ */
   function renderCta(c) {
     const root = document.getElementById("cta");
@@ -299,7 +246,7 @@
   }
 
   /* ------------------------------------------------------------
-     13. フッター
+     11. フッター
   ------------------------------------------------------------ */
   function renderFooter(c) {
     const root = document.querySelector(".footer");
@@ -386,15 +333,12 @@
       try {
         applyMeta(CONTENT.meta);
         renderHero(CONTENT.hero);
-        renderIntro(CONTENT.intro);
-        renderCanDo(CONTENT.canDo);
         renderExampleVideo(CONTENT.exampleVideo);
-        renderSteps(CONTENT.steps);
         renderMainPrompt(CONTENT.mainPrompt);
+        renderSteps(CONTENT.steps);
         renderTips(CONTENT.tips);
         renderExtraQuestions(CONTENT.extraQuestions);
         renderCaution(CONTENT.caution);
-        renderSummary(CONTENT.summary);
         renderCta(CONTENT.cta);
         renderFooter(CONTENT.footer);
       } catch (err) {
