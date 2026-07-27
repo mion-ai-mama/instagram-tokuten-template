@@ -106,7 +106,7 @@ const CONTENT = {
   exampleVideo: {
     // 動画セクションを表示するかどうか。動画がない特典の場合は false のままでOKです。
     // true にすると、下の設定にもとづいて動画セクションが表示されます。
-    showVideo: false,
+    showVideo: true,
     heading: "実際に作った動画はこちら",
     // "local" = 自分でアップロードしたmp4動画を再生 / "youtube" = YouTube限定公開動画を埋め込み
     mode: "local",
@@ -304,7 +304,12 @@ YouTubeで人気の動画です。
     afterHighlight: "も無料でご用意しています。",
     buttonText: "AIマネタイズの教科書を受け取る",
     // ▼▼ ここを変更するだけでボタンのリンク先が変わります ▼▼
-    buttonUrl: "https://example.com/",
+    buttonUrl: "https://sub.aione.co.jp/line/open/ErxG3f10mmcK?mtid=8LTecV7UlNz5",
+    // バナー画像を使う場合はここにパスを入れてください(画像自体がボタンになります)。
+    // 使わない場合は null にすると、通常のテキストボタンが表示されます。
+    bannerImage: "assets/images/cta-banner.png",
+    // バナー画像の内容を説明する文章(画像が見えない方のためのalt文言)
+    bannerAlt: "無料プレゼント AIマネタイズ教科書。AIで働き方の選択肢を広げたい方へ。LINE登録はこちら",
   },
 
   // ------------------------------------------------------------

@@ -274,8 +274,28 @@
       `<p>${p1}</p><p>${p2}</p>` +
       `<p>${p3}<br><strong class="cta-card__highlight">${c.highlightText}</strong><br>${c.afterHighlight}</p>`;
     const btn = document.getElementById("cta-button");
-    btn.textContent = c.buttonText;
     btn.setAttribute("href", c.buttonUrl);
+
+    if (c.bannerImage) {
+      btn.classList.remove("btn", "btn--primary", "btn--large");
+      btn.classList.add("cta-card__banner-link");
+      btn.innerHTML = `<img src="${c.bannerImage}" alt="${escapeHtml(c.bannerAlt || c.buttonText)}" class="cta-card__banner-img">`;
+      const img = btn.querySelector("img");
+      img.addEventListener(
+        "error",
+        () => {
+          // 画像が読み込めなかった場合は、安全のため通常のテキストボタンに戻す
+          btn.classList.remove("cta-card__banner-link");
+          btn.classList.add("btn", "btn--primary", "btn--large");
+          btn.textContent = c.buttonText;
+        },
+        { once: true }
+      );
+    } else {
+      btn.classList.remove("cta-card__banner-link");
+      btn.classList.add("btn", "btn--primary", "btn--large");
+      btn.textContent = c.buttonText;
+    }
   }
 
   /* ------------------------------------------------------------
