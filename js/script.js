@@ -98,6 +98,15 @@
   function renderExampleVideo(c) {
     const root = document.getElementById("example-video");
     if (!root || !c) return;
+
+    if (!c.showVideo) {
+      root.style.display = "none";
+      root.setAttribute("aria-hidden", "true");
+      return;
+    }
+    root.style.display = "";
+    root.removeAttribute("aria-hidden");
+
     root.querySelector(".section__heading").innerHTML = c.heading;
     const card = root.querySelector(".video-card");
 
