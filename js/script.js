@@ -42,6 +42,21 @@
   }
 
   /* ------------------------------------------------------------
+     セクションの表示・非表示（content.js の sections で一括制御）
+  ------------------------------------------------------------ */
+  function toggleSection(id, visible) {
+    const root = document.getElementById(id);
+    if (!root) return;
+    if (visible) {
+      root.style.display = "";
+      root.removeAttribute("aria-hidden");
+    } else {
+      root.style.display = "none";
+      root.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  /* ------------------------------------------------------------
      1. ファーストビュー
   ------------------------------------------------------------ */
   function renderHero(c) {
@@ -62,14 +77,6 @@
   function renderExampleVideo(c) {
     const root = document.getElementById("example-video");
     if (!root || !c) return;
-
-    if (!c.showVideo) {
-      root.style.display = "none";
-      root.setAttribute("aria-hidden", "true");
-      return;
-    }
-    root.style.display = "";
-    root.removeAttribute("aria-hidden");
 
     root.querySelector(".section__heading").innerHTML = c.heading;
     const card = root.querySelector(".video-card");
@@ -106,34 +113,40 @@
 
   /* ------------------------------------------------------------
      4〜6. STEP
+     steps 配列の数だけ、STEPセクションをその場で組み立てます。
+     （HTML側は steps-container という空の入れ物があるだけなので、
+     　content.js の steps を増減させれば、STEPの数も自由に変わります）
   ------------------------------------------------------------ */
   function renderSteps(steps) {
-    if (!steps) return;
-    steps.forEach((step, i) => {
-      const root = document.getElementById("step" + (i + 1));
-      if (!root) return;
-      root.querySelector(".step__number").textContent = step.number;
-      root.querySelector(".step__title").innerHTML = step.title;
+    const container = document.getElementById("steps-container");
+    if (!container || !steps) return;
 
-      let html = (step.paragraphs || []).map((p) => `<p>${p}</p>`).join("");
-      if (step.list && step.list.length) {
-        html += '<ul class="check-list">' + step.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
-      }
-      html += (step.afterParagraphs || []).map((p) => `<p>${p}</p>`).join("");
-      root.querySelector(".prose").innerHTML = html;
+    container.innerHTML = steps
+      .map((step, i) => {
+        const id = "step" + (i + 1);
+        const softClass = i % 2 === 1 ? " section--soft" : "";
 
-      let noteBox = root.querySelector(".note-box");
-      if (step.note) {
-        if (!noteBox) {
-          noteBox = document.createElement("div");
-          noteBox.className = "note-box";
-          root.querySelector(".section__inner").appendChild(noteBox);
+        let prose = (step.paragraphs || []).map((p) => `<p>${p}</p>`).join("");
+        if (step.list && step.list.length) {
+          prose += '<ul class="check-list">' + step.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
         }
-        noteBox.innerHTML = `<p class="note-box__label">${step.note.label}</p><p>${step.note.text}</p>`;
-      } else if (noteBox) {
-        noteBox.remove();
-      }
-    });
+        prose += (step.afterParagraphs || []).map((p) => `<p>${p}</p>`).join("");
+
+        const noteHtml = step.note
+          ? `<div class="note-box"><p class="note-box__label">${step.note.label}</p><p>${step.note.text}</p></div>`
+          : "";
+
+        return `
+        <section class="section${softClass} step" id="${id}" aria-labelledby="${id}-heading">
+          <div class="section__inner reveal">
+            <p class="step__number">${step.number}</p>
+            <h2 class="step__title" id="${id}-heading">${step.title}</h2>
+            <div class="prose">${prose}</div>
+            ${noteHtml}
+          </div>
+        </section>`;
+      })
+      .join("");
   }
 
   /* ------------------------------------------------------------
@@ -341,6 +354,14 @@
         renderCaution(CONTENT.caution);
         renderCta(CONTENT.cta);
         renderFooter(CONTENT.footer);
+
+        const s = CONTENT.sections || {};
+        toggleSection("example-video", s.video !== false);
+        toggleSection("main-prompt", s.mainPrompt !== false);
+        toggleSection("steps-container", s.steps !== false);
+        toggleSection("tips", s.tips !== false);
+        toggleSection("extra-questions", s.extraQuestions !== false);
+        toggleSection("caution", s.caution !== false);
       } catch (err) {
         // content.js の書き方に誤りがある場合はここに来ます。
         // index.html に書かれた初期文章がそのまま表示されるので、ページは壊れません。
