@@ -114,65 +114,63 @@ YouTubeで人気の動画です。
   </section>
 
   <!-- ============================================================
-       4. STEP1
+       4〜6. STEP（steps-container の中身は js/content.js の steps
+       配列から自動生成されます。ここにあるHTMLは、JavaScriptが
+       読み込めなかった場合に表示される初期表示用です）
   ============================================================ -->
-  <section class="section step" id="step1" aria-labelledby="step1-heading">
-    <div class="section__inner reveal">
-      <p class="step__number">STEP 1</p>
-      <h2 class="step__title" id="step1-heading">気になる人気動画を見つける</h2>
-      <div class="prose">
-        <p>YouTubeやInstagramで、次のような動画を探しましょう。</p>
-        <ul class="check-list">
-          <li>最後まで見てしまった動画</li>
-          <li>再生回数が多い動画</li>
-          <li>コメントや反応が多い動画</li>
-          <li>自分の発信テーマに近い動画</li>
-          <li>なぜか気になって何度も見た動画</li>
-        </ul>
-        <p>そのまま真似するのではなく、「なぜ気になったのか」を考える参考として選びましょう。</p>
+  <div id="steps-container">
+    <section class="section step" id="step1" aria-labelledby="step1-heading">
+      <div class="section__inner reveal">
+        <p class="step__number">STEP 1</p>
+        <h2 class="step__title" id="step1-heading">気になる人気動画を見つける</h2>
+        <div class="prose">
+          <p>YouTubeやInstagramで、次のような動画を探しましょう。</p>
+          <ul class="check-list">
+            <li>最後まで見てしまった動画</li>
+            <li>再生回数が多い動画</li>
+            <li>コメントや反応が多い動画</li>
+            <li>自分の発信テーマに近い動画</li>
+            <li>なぜか気になって何度も見た動画</li>
+          </ul>
+          <p>そのまま真似するのではなく、「なぜ気になったのか」を考える参考として選びましょう。</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       5. STEP2
-  ============================================================ -->
-  <section class="section section--soft step" id="step2" aria-labelledby="step2-heading">
-    <div class="section__inner reveal">
-      <p class="step__number">STEP 2</p>
-      <h2 class="step__title" id="step2-heading">動画のスクショを撮る</h2>
-      <div class="prose">
-        <p>動画の流れが分かるように、3〜5枚ほどスクショを撮ります。</p>
-        <ul class="check-list">
-          <li>動画のタイトルやサムネイル</li>
-          <li>冒頭の場面</li>
-          <li>内容が大きく動く場面</li>
-          <li>途中の重要な場面</li>
-          <li>最後のまとめや案内部分</li>
-        </ul>
+    <section class="section section--soft step" id="step2" aria-labelledby="step2-heading">
+      <div class="section__inner reveal">
+        <p class="step__number">STEP 2</p>
+        <h2 class="step__title" id="step2-heading">動画のスクショを撮る</h2>
+        <div class="prose">
+          <p>動画の流れが分かるように、3〜5枚ほどスクショを撮ります。</p>
+          <ul class="check-list">
+            <li>動画のタイトルやサムネイル</li>
+            <li>冒頭の場面</li>
+            <li>内容が大きく動く場面</li>
+            <li>途中の重要な場面</li>
+            <li>最後のまとめや案内部分</li>
+          </ul>
+        </div>
+        <div class="note-box">
+          <p class="note-box__label">補足</p>
+          <p>YouTubeのURLだけでは分析できない場合があるため、スクショを送る方法がおすすめです。</p>
+        </div>
       </div>
-      <div class="note-box">
-        <p class="note-box__label">補足</p>
-        <p>YouTubeのURLだけでは分析できない場合があるため、スクショを送る方法がおすすめです。</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       6. STEP3
-  ============================================================ -->
-  <section class="section step" id="step3" aria-labelledby="step3-heading">
-    <div class="section__inner reveal">
-      <p class="step__number">STEP 3</p>
-      <h2 class="step__title" id="step3-heading">スクショと指示文を<br>ChatGPTに送る</h2>
-      <div class="prose">
-        <p>ChatGPTを開いたら、<br>先ほど撮ったスクショを添付します。</p>
-        <p>そのあと、<br>このページにある指示文をコピーして送ってください。</p>
-        <p>難しい設定は必要ありません。</p>
-        <p>スクショを添付して、<br>指示文を貼り付けて送るだけです。</p>
+    <section class="section step" id="step3" aria-labelledby="step3-heading">
+      <div class="section__inner reveal">
+        <p class="step__number">STEP 3</p>
+        <h2 class="step__title" id="step3-heading">スクショと指示文を<br>ChatGPTに送る</h2>
+        <div class="prose">
+          <p>ChatGPTを開いたら、<br>先ほど撮ったスクショを添付します。</p>
+          <p>そのあと、<br>このページにある指示文をコピーして送ってください。</p>
+          <p>難しい設定は必要ありません。</p>
+          <p>スクショを添付して、<br>指示文を貼り付けて送るだけです。</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- ============================================================
        7. 結果をよくするコツ
