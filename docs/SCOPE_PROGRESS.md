@@ -47,12 +47,19 @@
 
 | サービス | アカウント | 備考 |
 |---------|-----------|------|
-| GitHub | [x] satomi-saiga（ログイン確認済み） | リポジトリ作成・Pages公開に使用 |
+| GitHub | [x] mion-ai-mama（発信用アカウント。本名の satomi-saiga とは別、ログイン確認済み） | リポジトリ作成・Pages公開に使用 |
 | LINE公式アカウント | [x] 既存の登録導線あり | CTAリンクは仮URL(`https://example.com/`)。本番URLへの差し替えが必要 |
 
 ## 未完了・ユーザー対応が必要な項目
 
 - [ ] `js/content.js` の `cta.buttonUrl` を実際のLINE登録URLに差し替える
 - [ ] `assets/videos/example.mp4` と `assets/images/video-poster.jpg` に実際の動画・画像を配置する
-- [ ] GitHub Pagesの公開設定（Settings → Pages）をブラウザ上で有効化する
-- [ ] リポジトリを「テンプレートリポジトリ」に設定する（Settings → General → Template repository）
+- [x] GitHub Pagesの公開設定 → 完了（`https://mion-ai-mama.github.io/instagram-tokuten-template/`）
+- [x] リポジトリを「テンプレートリポジトリ」に設定 → 完了
+
+## 経緯メモ（プライバシー対応）
+
+当初 `satomi-saiga`（本名ベースのアカウント）配下で公開したところ、GitHub Pagesの
+URL構造上、公開URLに本名が露出することが判明。発信用の別アカウント `mion-ai-mama` を
+新規作成し、リポジトリ移動・Pages再設定・テンプレート設定の引き継ぎを完了した。
+今後の特典リポジトリもすべて `mion-ai-mama` 側で作成する。
