@@ -230,8 +230,19 @@ HTML側を探して書き換える必要はありません。
 
 ## 11. 動画を追加する方法
 
-このテンプレートは、2つの方法から選べます。`content.js` の
-`exampleVideo.mode` を `"local"` か `"youtube"` に切り替えてください。
+**動画は必須ではありません。** 動画がない特典の場合は、`content.js` の
+`exampleVideo.showVideo` を `false` のままにしておけば、動画セクションごと
+自動的に非表示になり、前後のセクションが自然につながります（レイアウトは崩れません）。
+
+```js
+exampleVideo: {
+  showVideo: false, // 動画を使う場合だけ true に変更してください
+  ...
+}
+```
+
+動画を使いたい場合は `showVideo: true` に変更したうえで、2つの方法から選べます。
+`content.js` の `exampleVideo.mode` を `"local"` か `"youtube"` に切り替えてください。
 
 ### 方法A：動画ファイルを直接アップロードする（`mode: "local"`）
 
