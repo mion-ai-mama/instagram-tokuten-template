@@ -24,10 +24,12 @@ const CONTENT = {
     // 検索結果やSNSシェア時に表示される説明文
     description:
       "人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。コピペで使えるプロンプト付き。",
-    // OGP画像（SNSでシェアされたときに表示される画像）。用意ができたら差し替えてください
-    ogpImage: "assets/images/ogp.jpg",
-    // このページの公開URL（GitHub Pages公開後に書き換えてください）
-    siteUrl: "https://example.com/",
+    // OGP画像（SNSやLINEでリンクをシェアしたときに表示される画像）。
+    // og:image は絶対URL（https://から始まるURL）である必要があります。
+    // 専用の画像を用意したら、ここを差し替えてください。
+    ogpImage: "https://mion-ai-mama.github.io/instagram-tokuten-template/assets/images/video-poster.jpg",
+    // このページの公開URL
+    siteUrl: "https://mion-ai-mama.github.io/instagram-tokuten-template/",
     // faviconのパス（差し替える場合は assets/favicon/ の中のファイルを入れ替えてください）
     faviconPath: "assets/favicon/favicon.svg",
   },
