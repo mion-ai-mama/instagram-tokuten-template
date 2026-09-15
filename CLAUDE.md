@@ -53,3 +53,31 @@ JavaScript無効時のフォールバック表示であり、`content.js` を編
 ### テンプレートリポジトリとしての運用
 - 新しい特典ページは、このリポジトリを「Use this template」で複製してから編集する
 - 元のテンプレートリポジトリ自体は編集しない（README.md §16参照）
+
+## CI/CD設定（ローカルゲート主体 + 軽量Actions）
+
+このプロジェクトはビルド工程のない静的サイトのため、Node/npmのビルド・テストは行わない。
+代わりに「壊れたページがGitHub Pagesに公開されること」を防ぐチェックだけを置く。
+
+### 品質ゲートの二段構え
+
+| 段 | どこで | 何を | タイミング |
+|---|---|---|---|
+| 第一防壁 | ローカル git hook | `pre-commit`: 秘密情報ファイルの混入拒否 / JavaScript構文チェック | commit時に自動 |
+| 最終防壁 | GitHub Actions（`.github/workflows/ci.yml` の `verify`） | JavaScript構文 / 必須ファイル存在 / `index.html` のリンク切れ | main への push・PR時 |
+
+- `prepare-commit-msg` フックがコミットメッセージ冒頭に日時を自動付与する。
+- テストフレームワークは導入していないため `pre-push` フックは置いていない。
+- ローカルフックは `--no-verify` で回避でき、複製先のリポジトリにも引き継がれない。
+  そのため最終的な担保は GitHub Actions 側の `verify` が行う。
+
+### ブランチ戦略
+
+- `main`: 本番（GitHub Pages が公開しているブランチ）
+- `develop`: 開発・編集用の統合ブランチ
+
+### リポジトリ
+
+- URL: https://github.com/mion-ai-mama/instagram-tokuten-template
+- 公開設定: Public（テンプレートリポジトリ）
+- 公開ページ: https://mion-ai-mama.github.io/instagram-tokuten-template/
