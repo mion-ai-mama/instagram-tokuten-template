@@ -31,7 +31,7 @@
 | 9 | フロントエンド実装(API統合) | Agent 9 | スキップ(API連携なし) |
 | 10 | E2Eテスト | Agent 10 | [x](ブラウザで表示・コピー機能・動画埋め込みを確認済み) |
 | 11 | ローカル動作確認 | Agent 11 | [x] |
-| 12 | デプロイ | Agent 12 | [ ](GitHub Pages公開設定はユーザー操作が必要な箇所あり。README §12参照) |
+| 12 | デプロイ | Agent 12 | [x](GitHub Pages公開済み: https://mion-ai-mama.github.io/instagram-tokuten-template/) |
 
 ## ページ / ファイル管理表
 
@@ -52,8 +52,8 @@
 
 ## 未完了・ユーザー対応が必要な項目
 
-- [ ] `js/content.js` の `cta.buttonUrl` を実際のLINE登録URLに差し替える
-- [ ] `assets/videos/example.mp4` と `assets/images/video-poster.jpg` に実際の動画・画像を配置する
+- [x] `js/content.js` の `cta.buttonUrl` → AIマネタイズの教科書のLINE登録URLを設定済み
+- [x] `assets/videos/example.mp4`（14MB）と `assets/images/video-poster.jpg`（720x405）→ 実データ配置済み
 - [x] GitHub Pagesの公開設定 → 完了（`https://mion-ai-mama.github.io/instagram-tokuten-template/`）
 - [x] リポジトリを「テンプレートリポジトリ」に設定 → 完了
 - [x] ルートに未追跡で置かれていた `square-banner.png` → 削除（特定特典専用のブルー系バナーで、テンプレートの配色・用途と不一致のため）
