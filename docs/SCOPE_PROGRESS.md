@@ -22,7 +22,7 @@
 |-------|------|------|------|
 | 1 | 要件定義 | Agent 1 | [x] |
 | 2 | Git管理 | Agent 2 | [x]（CI/CD・Gitフック・main保護まで整備済み） |
-| 3 | フロントエンド基盤 | Agent 3 | スキップ(ビルド不要の静的サイトのため) |
+| 3 | フロントエンド基盤 | Agent 3 | スキップ(ビルド不要の静的サイトのため。requirements.md §0 の必須条件によりReact/Vite/MUIは導入しない。デザイン基盤は css/style.css の :root に集約済み) |
 | 4 | ページ実装 | Agent 4 | [x](本セッションで完成ページを実装) |
 | 5 | 環境構築 | Agent 5 | スキップ(外部API連携なし) |
 | 6 | バックエンド計画 | Agent 6 | スキップ(バックエンドなし) |
@@ -56,7 +56,7 @@
 - [ ] `assets/videos/example.mp4` と `assets/images/video-poster.jpg` に実際の動画・画像を配置する
 - [x] GitHub Pagesの公開設定 → 完了（`https://mion-ai-mama.github.io/instagram-tokuten-template/`）
 - [x] リポジトリを「テンプレートリポジトリ」に設定 → 完了
-- [ ] ルートに未追跡で置かれている `square-banner.png` の扱いを決める（テンプレートの正式アセットなら `assets/images/` へ移動、不要なら削除）
+- [x] ルートに未追跡で置かれていた `square-banner.png` → 削除（特定特典専用のブルー系バナーで、テンプレートの配色・用途と不一致のため）
 
 ## 経緯メモ（プライバシー対応）
 
