@@ -21,7 +21,7 @@
 | Phase | 名称 | 担当 | 状態 |
 |-------|------|------|------|
 | 1 | 要件定義 | Agent 1 | [x] |
-| 2 | Git管理 | Agent 2 | [x] |
+| 2 | Git管理 | Agent 2 | [x]（CI/CD・Gitフック・main保護まで整備済み） |
 | 3 | フロントエンド基盤 | Agent 3 | スキップ(ビルド不要の静的サイトのため) |
 | 4 | ページ実装 | Agent 4 | [x](本セッションで完成ページを実装) |
 | 5 | 環境構築 | Agent 5 | スキップ(外部API連携なし) |
@@ -56,6 +56,7 @@
 - [ ] `assets/videos/example.mp4` と `assets/images/video-poster.jpg` に実際の動画・画像を配置する
 - [x] GitHub Pagesの公開設定 → 完了（`https://mion-ai-mama.github.io/instagram-tokuten-template/`）
 - [x] リポジトリを「テンプレートリポジトリ」に設定 → 完了
+- [ ] ルートに未追跡で置かれている `square-banner.png` の扱いを決める（テンプレートの正式アセットなら `assets/images/` へ移動、不要なら削除）
 
 ## 経緯メモ（プライバシー対応）
 
@@ -68,3 +69,23 @@ URL構造上、公開URLに本名が露出することが判明。発信用の�
 （`css/style.css` の `:root` カラー変数）に変更。以後複製する新しい特典ページは、この
 配色がデフォルトになる。参照元: `assets/images/cta-banner.png`（『AIマネタイズの教科書』
 バナー）の配色トーン。
+
+2026-09-15、Phase 2（Git管理）の仕上げとして以下を整備した。
+
+- `.gitignore`: 秘密情報ファイルと、配下に置かれた別プロジェクト
+  （`chatgpt-illustration-tokuten/`・`tokuten-matome/`）のテンプレートへの混入を防止。
+- Gitフック: `prepare-commit-msg`（コミット日時の自動付与）、
+  `pre-commit`（秘密情報ファイルの混入拒否・JavaScript構文チェック）。
+- GitHub Actions `.github/workflows/ci.yml` の `verify`:
+  JavaScript構文 / 必須ファイル存在 / `index.html` のリンク切れを検査。
+  ビルド工程のない静的サイトのため、npmビルド・テストは意図的に載せていない。
+- `main` にブランチ保護を設定（`verify` グリーン必須・force push / 削除の禁止）。
+  `enforce_admins` は false のため、オーナー本人は従来どおり直接pushできる。
+- `develop` ブランチを作成。
+- コミット著者名の是正: このリポジトリのコミットは本名 `旧アカウント名義` で
+  記録されていた。公開リポジトリであり、本名露出を避けるために発信用アカウントへ
+  移行した経緯と矛盾するため、リポジトリローカル設定を
+  `mion-ai-mama <309648686+mion-ai-mama@users.noreply.github.com>` に変更した。
+  ⚠️ 既存の9コミットには本名が残っている（履歴の書き換えは公開済みリポジトリに対する
+  破壊的操作のため未実施。対応要否はユーザー判断）。
+  ⚠️ 他のリポジトリには未適用（global設定は本名のまま）。
