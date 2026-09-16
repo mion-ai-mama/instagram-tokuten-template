@@ -89,15 +89,12 @@ URL構造上、公開URLに本名が露出することが判明。発信用の�
 
 - Gitのglobal設定を `mion-ai-mama <309648686+mion-ai-mama@users.noreply.github.com>` に変更。
   これが本名混入の根本原因だった（新規リポジトリを作るたびに刻まれ続けていた）。
-- 公開リポジトリ16個すべての履歴を書き換え、著者名・コミッター名・メール・
+- 全21リポジトリ（公開16・非公開5）の履歴を書き換え、著者名・コミッター名・メール・
   ファイル本文から本名と個人メールを除去。GitHub API で全ブランチ検証済み（残存ゼロ）。
 - ローカルの作業コピー14個を新しい履歴に同期（古い履歴のまま push すると復活するため）。
 - GitHub Pages の公開状態・CI がグリーンであることを確認済み。
 - 手順の詳細は AI の memory `github-realname-history-cleanup` に記録。
 
 ⚠️ 残課題:
-- 非公開リポジトリ5個（`mion-ig-automation` / `rakuten-post-maker` / `utage-ai-director` /
-  `ai-affiliate-seminar` / `mira`）には本名が残っている。非公開のため現時点で露出はないが、
-  公開に切り替える場合は事前に同じ除去作業が必要。
 - force push 後も GitHub は旧コミットを SHA 直指定で一定期間参照できる。完全消去が必要なら
   GitHub Support に purge を依頼する。フォーク・クローン済みのコピーには手が届かない。
